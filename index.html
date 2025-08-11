@@ -3,66 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abrix - Best way to build great website</title>
+    <meta name="description" content="Abrix Tech - Empowering Growth Through Smart Technology Solutions. We build modern, scalable software and digital products that help businesses grow, streamline operations, and stay competitive.">
+    <meta name="keywords" content="web development, mobile apps, custom software, AI solutions, digital transformation, Abrix Tech">
+    <meta name="author" content="Abrix Tech">
+    <meta name="theme-color" content="#090808">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://abrixtech.com/">
+    <meta property="og:title" content="Abrix Tech - Smart Technology Solutions">
+    <meta property="og:description" content="Empowering Growth Through Smart Technology Solutions. We build modern, scalable software and digital products.">
+    <meta property="og:image" content="https://abrixtech.com/abrix-logo.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://abrixtech.com/">
+    <meta property="twitter:title" content="Abrix Tech - Smart Technology Solutions">
+    <meta property="twitter:description" content="Empowering Growth Through Smart Technology Solutions. We build modern, scalable software and digital products.">
+    <meta property="twitter:image" content="https://abrixtech.com/abrix-logo.png">
+    
+    <link rel="icon" type="image/png" href="abrix symbol.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Abrix Tech - Smart Technology Solutions | Web & Mobile App Development</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="white-theme">
 
     <!-- Header/Navigation -->
     <header class="header">
         <nav class="nav">
             <div class="nav-logo">
-                <img src="abrix logo white.png" alt="Abrix Logo" class="logo-image">
+                <img src="abrix logo white.png" alt="Abrix Logo" class="logo-image" loading="eager">
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#about">About Us</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#team">Team</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#contact">Contact</a></li>
             </ul>
-            <button class="cta-button">Let's Talk</button>
+            <button class="cta-button" data-target="#inquiry">Let's Talk</button>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-background">
-            <img src="image 1.jpg" alt="Hero Background" class="hero-bg-image">
+            <div class="hero-slider" aria-label="Hero image scroller" data-autoplay-interval="5000">
+                <img src="R/R1.jpg" alt="Hero background image R1" class="hero-slide" loading="eager">
+                <img src="R/R3.jpg" alt="Hero background image R3" class="hero-slide" loading="lazy">
+                <img src="R/R7.jpg" alt="Hero background image R7" class="hero-slide" loading="lazy">
+            </div>
             <div class="hero-overlay"></div>
         </div>
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Best way to build <span class="highlight">great</span> website.</h1>
-                <p>We create digital experiences that matter.<br>
-                Our team of experts crafts innovative solutions that drive results.</p>
+                <h1>Empowering Growth Through Smart Technology Solutions</h1>
+                <p>We build modern, scalable software and digital products that help businesses grow, streamline operations, and stay competitive.</p>
+                <div class="hero-actions">
+                    <button class="cta-button hero-contact hero-contact--primary" type="button" data-target="#inquiry" aria-label="Contact us">
+                        Let's Connect
+                    </button>
+                </div>
             </div>
+        </div>
+
+        <div class="hero-dots" role="tablist" aria-label="Hero slider dots"></div>
+        <div class="hero-cta-group">
+            <button class="cta-button hero-scroll" type="button" data-target="#about" aria-label="Scroll to next section">
+                <img src="arrow.png" alt="Scroll down" class="hero-scroll-img" />
+            </button>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about">
+        <div class="about-background">
+            <div class="about-bg-pattern"></div>
+            <div class="about-bg-glow"></div>
+        </div>
         <div class="container">
+            <div class="section-header about-header">
+                <h2 class="section-title">About Abrix Tech</h2>
+                <p class="section-slogan">Turning Ideas Into Digital Products</p>
+            </div>
             <div class="about-content">
                 <div class="about-text">
-                    <h2>We believe in the power of individual contribution.</h2>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <h3>100%</h3>
-                            <p>CLIENT SATISFACTION</p>
-                        </div>
-                        <div class="stat">
-                            <h3>6700</h3>
-                            <p>PROJECTS COMPLETED</p>
-                        </div>
-                    </div>
+                    <p>
+                        Founded with a vision to democratize technology for businesses of all sizes, Abrix Tech has been at the forefront of digital transformation since day one.
+                    </p>
+                    <p>
+                        We exist to empower startups, SMEs, and growing enterprises by turning ambitious ideas into powerful digital products — fast, smart, AI-driven, and built to scale.
+                    </p>
+                    <p>
+                        From custom platforms to mobile apps to next-gen AI-powered solutions, we don't just build — we innovate, optimize, and future-proof. Whether you're launching something new or solving complex digital challenges, we're your tech partner from concept to launch and beyond.
+                    </p>
+                    <h3 class="about-approach">Our Approach</h3>
+                    <p>
+                        Our team of experienced developers, designers, consultants, and AI specialists work collaboratively to deliver solutions that solve today's problems and prepare you for tomorrow's possibilities. We build with purpose — combining creativity, precision, and speed.
+                    </p>
                 </div>
                 <div class="about-images">
-                    <img class="about-image-square" src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=800&fit=crop" alt="Team working together">
+                    <img class="about-image-square" src="about us.jpg" alt="About Abrix Tech">
                 </div>
             </div>
         </div>
@@ -71,84 +115,150 @@
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
-            <div class="services-background">
-                <div class="large-text">Web Design</div>
-                <div class="large-text">Web Develo</div>
-            </div>
             <div class="services-content">
-                <h2>SERVICES.</h2>
-                <p class="services-subtitle">We craft end‑to‑end digital solutions that help brands stand out and grow.<br>
-                From strategy and design to development and launch — we’ve got you covered.</p>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                                <line x1="8" y1="21" x2="16" y2="21"></line>
-                                <line x1="12" y1="17" x2="12" y2="21"></line>
-                            </svg>
-                        </div>
-                        <h3>Web Design</h3>
-                        <p>Create stunning, responsive websites that captivate your audience and drive conversions.</p>
-                        <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <path d="M12 2v20M2 12h20"></path>
-                            </svg>
-                        </div>
-                        <h3>Digital Product Design</h3>
-                        <p>Design intuitive user experiences that delight users and achieve business goals.</p>
-                        <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                                <polyline points="2,17 12,22 22,17"></polyline>
-                                <polyline points="2,12 12,17 22,12"></polyline>
-                            </svg>
-                        </div>
-                        <h3>Web Development</h3>
-                        <p>Build robust, scalable web applications using cutting-edge technologies.</p>
-                        <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                    <!-- New placeholders -->
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 2l3 7h7l-5.5 4 2 7-6.5-4.5L5.5 20l2-7L2 9h7z"></path>
-                            </svg>
-                        </div>
-                        <h3>Service Title</h3>
-                        <p>Placeholder description. Content to be provided.</p>
-                        <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="3" width="18" height="14" rx="2" ry="2"></rect>
-                                <path d="M8 21h8M12 17v4"></path>
-                            </svg>
-                        </div>
-                        <h3>Service Title</h3>
-                        <p>Placeholder description. Content to be provided.</p>
-                        <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <path d="M8 12h8M12 8v8"></path>
-                            </svg>
-                        </div>
-                        <h3>Service Title</h3>
-                        <p>Placeholder description. Content to be provided.</p>
-                        <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
+                <div class="services-header">
+                    <h2 class="services-title">Our Services</h2>
+                    <p class="services-lead">At Abrix Tech, we turn business needs into bold, scalable digital solutions. Whether you're building from scratch or improving what already exists — we deliver strategy, design, development, and execution that drive real impact.</p>
+                    <p class="services-explore">Explore what we offer:</p>
                 </div>
+
+                <div class="services-slider" data-page="0">
+                    <div class="services-page active">
+                        <div class="services-grid">
+                            <div class="service-card" data-title="AI-Powered App Development & Prototyping">
+                                <div class="service-icon"><i class="fas fa-robot"></i></div>
+                                <h3>AI-Powered App Development & Prototyping</h3>
+                                <p>Leverage the latest in AI to bring your product ideas to life faster. We build intelligent, data-driven applications and rapid prototypes that give you a competitive edge.</p>
+                                <a href="#inquiry" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                                <div class="service-details" hidden>
+                                    Leverage the latest in AI to bring your product ideas to life faster. We build intelligent, data-driven applications and rapid prototypes that give you a competitive edge.
+                                </div>
+                            </div>
+                            <div class="service-card" data-title="Custom Software Development">
+                                <div class="service-icon"><i class="fas fa-gears"></i></div>
+                                <h3>Custom Software Development</h3>
+                                <p>Tailored solutions built from the ground up to match your business needs. We design and develop robust, scalable software that grows with your goals.</p>
+                                <a href="#inquiry" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                                <div class="service-details" hidden>
+                                    Tailored solutions built from the ground up to match your business needs. We design and develop robust, scalable software that grows with your goals.
+                                </div>
+                            </div>
+                            <div class="service-card" data-title="Website Design & Development">
+                                <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+                                <h3>Website Design & Development</h3>
+                                <p>From sleek, modern designs to powerful back-end functionality — we create websites that captivate visitors and convert them into customers.</p>
+                                <a href="#inquiry" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                                <div class="service-details" hidden>
+                                    From sleek, modern designs to powerful back-end functionality — we create websites that captivate visitors and convert them into customers.
+                                </div>
+                            </div>
+                            <div class="service-card" data-title="Mobile App Development">
+                                <div class="service-icon"><i class="fas fa-mobile-screen-button"></i></div>
+                                <h3>Mobile App Development</h3>
+                                <p>Native and cross-platform mobile apps designed for performance, user engagement, and a seamless experience on every device.</p>
+                                <a href="#inquiry" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                                <div class="service-details" hidden>
+                                    Native and cross-platform mobile apps designed for performance, user engagement, and a seamless experience on every device.
+                                </div>
+                            </div>
+                            <div class="service-card" data-title="Digital Marketing">
+                                <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
+                                <h3>Digital Marketing</h3>
+                                <p>Grow your online presence with targeted strategies in SEO, social media, content marketing, and paid advertising — all focused on measurable results.</p>
+                                <a href="#inquiry" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                                <div class="service-details" hidden>
+                                    Grow your online presence with targeted strategies in SEO, social media, content marketing, and paid advertising — all focused on measurable results.
+                                </div>
+                            </div>
+                            <div class="service-card" data-title="E-commerce Development">
+                                <div class="service-icon"><i class="fas fa-cart-shopping"></i></div>
+                                <h3>E-commerce Development</h3>
+                                <p>High-performing online stores with smooth navigation, secure payment gateways, and a customer-friendly experience that drives sales.</p>
+                                <a href="#inquiry" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                                <div class="service-details" hidden>
+                                    High-performing online stores with smooth navigation, secure payment gateways, and a customer-friendly experience that drives sales.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="services-page">
+                        <div class="services-grid">
+                            <div class="service-card" data-title="Project & Product Management">
+                                <div class="service-icon"><i class="fas fa-diagram-project"></i></div>
+                                <h3>Project & Product Management</h3>
+                                <p>Chaos out, clarity in. We handle timelines, budgets, and teams so your product moves from "in progress" to "done" without a hitch.</p>
+                                <a href="#inquiry" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                                <div class="service-details" hidden>
+                                    Chaos out, clarity in. We handle timelines, budgets, and teams so your product moves from "in progress" to "done" without a hitch.
+                                </div>
+                            </div>
+                            <div class="service-card" data-title="MVP Planning & Execution">
+                                <div class="service-icon"><i class="fas fa-rocket"></i></div>
+                                <h3>MVP Planning & Execution</h3>
+                                <p>Got an idea worth testing? We'll get you a market-ready Minimum Viable Product fast — so you can validate, pitch, or pivot with confidence.</p>
+                                <a href="#inquiry" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                                <div class="service-details" hidden>
+                                    Got an idea worth testing? We'll get you a market-ready Minimum Viable Product fast — so you can validate, pitch, or pivot with confidence.
+                                </div>
+                            </div>
+                            <div class="service-card" data-title="IT Consulting & Advisory">
+                                <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
+                                <h3>IT Consulting & Advisory</h3>
+                                <p>Not sure where to start? We'll help you choose the right tech, streamline your systems, and future-proof your business.</p>
+                                <a href="#inquiry" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                                <div class="service-details" hidden>
+                                    Not sure where to start? We'll help you choose the right tech, streamline your systems, and future-proof your business.
+                                </div>
+                            </div>
+                            <div class="service-card" data-title="Cloud Solutions">
+                                <div class="service-icon"><i class="fas fa-cloud"></i></div>
+                                <h3>Cloud Solutions</h3>
+                                <p>Run smarter, store safer, and scale faster with cloud setups built around your needs — no wasted space, no wasted money.</p>
+                                <a href="#inquiry" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                                <div class="service-details" hidden>
+                                    Run smarter, store safer, and scale faster with cloud setups built around your needs — no wasted space, no wasted money.
+                                </div>
+                            </div>
+                            <div class="service-card" data-title="Cybersecurity & Risk Management">
+                                <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+                                <h3>Cybersecurity & Risk Management</h3>
+                                <p>Your business is only as strong as its security. We protect your data, block threats, and keep you one step ahead of hackers.</p>
+                                <a href="#inquiry" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                                <div class="service-details" hidden>
+                                    Your business is only as strong as its security. We protect your data, block threats, and keep you one step ahead of hackers.
+                                </div>
+                            </div>
+                            <div class="service-card" data-title="Data Analytics & Management">
+                                <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                                <h3>Data Analytics & Management</h3>
+                                <p>We turn numbers into narratives. Understand your customers, track performance, and make decisions backed by data, not guesswork.</p>
+                                <a href="#inquiry" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                                <div class="service-details" hidden>
+                                    We turn numbers into narratives. Understand your customers, track performance, and make decisions backed by data, not guesswork.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="services-next" aria-label="Next page of services">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Let's Build Section -->
+    <section class="lets-build-section">
+        <div class="lets-build-background">
+            <img src="work 1.png" alt="Background" class="lets-build-bg-image">
+        </div>
+        <div class="container">
+            <div class="lets-build-content">
+                <h2 class="lets-build-title">Let's Build Something Exceptional Together</h2>
+                <p class="lets-build-subtitle">From bold concepts to market-ready products, we bring ideas to life with creativity, precision, and cutting-edge tech.</p>
+                <button class="cta-button lets-build-button" type="button" data-target="#inquiry" aria-label="Book a call">
+                    Book a Call
+                </button>
             </div>
         </div>
     </section>
@@ -163,122 +273,158 @@
                 <h2>Our Projects</h2>
                 <p class="portfolio-subtitle">A curated selection of recent work showcasing our approach and outcomes.<br>
                 From websites and apps to brand experiences — built to perform and delight.</p>
+                
                 <div class="portfolio-item">
                     <div class="portfolio-text">
-                        <h3>Mails</h3>
-                        <p class="subtitle">Mobile app</p>
-                        <h4>Mails Manage</h4>
-                        <p>A comprehensive email management application designed to streamline communication and boost productivity for modern teams.</p>
-                        <button class="view-project">View Project</button>
+                        <h3>Web Application</h3>
+                        <h4>Digital Signage Platform</h4>
+                        <p>Delivering Engaging, Real-Time Visual Communication Through Centralized Content Control.</p>
+                        <button class="view-project" data-project="signage">Project Detail</button>
                     </div>
                     <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&h=600&fit=crop" alt="Mobile app interface">
+                        <img src="gemini.jpg" alt="Digital Signage Platform">
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="image 11.png" alt="Manufacturing Optimization Platform">
+                    </div>
+                    <div class="portfolio-text">
+                        <h3>Web Application (Saas)</h3>
+                        <h4>Manufacturing Optimization Platform</h4>
+                        <p>Empowering Industries Through Zero Loss Analysis & Advanced Data Insights</p>
+                        <button class="view-project" data-project="mfg-opt">Project Detail</button>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-text">
+                        <h3>Web and Mobile SaaS Solution</h3>
+                        <h4>Fleet Management Suite</h4>
+                        <p>Driving Efficiency Through Real-Time Fleet Intelligence & AI-Powered Optimization</p>
+                        <button class="view-project" data-project="smartfleet">Project Detail</button>
+                    </div>
+                    <div class="portfolio-image">
+                        <img src="vehicle.jpg" alt="Fleet Management Suite">
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="HR.jpg" alt="Workforce Management System">
+                    </div>
+                    <div class="portfolio-text">
+                        <h3>Custom Enterprise Solution</h3>
+                        <h4>Workforce Management System</h4>
+                        <p>End-to-End HR Automation for Modern Organizations</p>
+                        <button class="view-project" data-project="hrmatrix">Project Detail</button>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- CTA White Section -->
-    <section class="brand-cta" id="lets-talk">
-        <div class="container">
-            <h2 class="brand-cta__title">Let’s build something exceptional together</h2>
-            <p class="brand-cta__subtitle">We help forward‑thinking brands craft digital products and web experiences that are fast, accessible, and beautiful. Our team blends strategy, design, and engineering to turn ideas into meaningful results that move your business forward.</p>
-            <button class="cta-button brand-cta__button">Let’s Talk</button>
         </div>
     </section>
 
     <!-- How We Work Section -->
-    <section class="how-we-work" id="how-we-work">
+    <section class="how-we-work">
         <div class="container">
             <h2 class="hww-title">How We Work</h2>
-            <p class="hww-subtitle">An agile, collaborative, and iterative approach. We plan in short cycles, deliver value early, and continuously improve with your feedback.</p>
-
-            <div class="flow-diagram" role="list" aria-label="Agile flow">
-                <div class="flow-step" role="listitem">
-                    <span class="step-index">01</span>
-                    <h3>Discover</h3>
-                    <p>Goals, users, scope</p>
+            <p class="hww-subtitle">Our proven process ensures your project is delivered on time, on budget, and exceeds expectations.</p>
+            <div class="flow-diagram">
+                <div class="flow-step">
+                    <div class="step-index">01</div>
+                    <h3>Discovery</h3>
+                    <p>We start by understanding your business, goals, and challenges to create a tailored solution.</p>
                 </div>
-                <div class="flow-arrow" aria-hidden="true">→</div>
-                <div class="flow-step" role="listitem">
-                    <span class="step-index">02</span>
-                    <h3>Plan</h3>
-                    <p>Backlog & roadmap</p>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="step-index">02</div>
+                    <h3>Strategy</h3>
+                    <p>We develop a comprehensive strategy and roadmap to achieve your objectives.</p>
                 </div>
-                <div class="flow-arrow" aria-hidden="true">→</div>
-                <div class="flow-step" role="listitem">
-                    <span class="step-index">03</span>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="step-index">03</div>
                     <h3>Design</h3>
-                    <p>UX/UI prototypes</p>
+                    <p>We create intuitive, beautiful designs that align with your brand and user needs.</p>
                 </div>
-                <div class="flow-arrow" aria-hidden="true">→</div>
-                <div class="flow-step" role="listitem">
-                    <span class="step-index">04</span>
-                    <h3>Develop</h3>
-                    <p>Sprint builds</p>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="step-index">04</div>
+                    <h3>Development</h3>
+                    <p>We build your solution using cutting-edge technologies and best practices.</p>
                 </div>
-                <div class="flow-arrow" aria-hidden="true">→</div>
-                <div class="flow-step" role="listitem">
-                    <span class="step-index">05</span>
-                    <h3>Test</h3>
-                    <p>QA & refinements</p>
-                </div>
-                <div class="flow-arrow" aria-hidden="true">→</div>
-                <div class="flow-step" role="listitem">
-                    <span class="step-index">06</span>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="step-index">05</div>
                     <h3>Launch</h3>
-                    <p>Go live</p>
-                </div>
-                <div class="flow-arrow" aria-hidden="true">↻</div>
-                <div class="flow-step" role="listitem">
-                    <span class="step-index">07</span>
-                    <h3>Iterate</h3>
-                    <p>Measure & improve</p>
+                    <p>We deploy your solution and provide ongoing support to ensure success.</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Inquiry Section (Form + Image) -->
-    <section class="inquiry-section" id="inquiry">
-        <div class="container inquiry-grid">
-            <div class="inquiry-image-wrap">
-                <img class="inquiry-image" src="image 1.jpg" alt="Project showcase">
-            </div>
-            <form class="inquiry-form" action="#contact" method="get">
-                <h3 class="inquiry-title">Tell us about your project</h3>
-                <p class="inquiry-subtitle">Share a few details and our team will get back to you shortly to discuss how we can help.</p>
-                <div class="form-row">
-                    <input type="text" name="name" placeholder="Your name" required>
-                </div>
-                <div class="form-row">
-                    <input type="email" name="email" placeholder="Your email" required>
-                </div>
-                <div class="form-row">
-                    <input type="tel" name="phone" placeholder="Phone number" required>
-                </div>
-                <div class="form-row">
-                    <textarea name="message" rows="5" placeholder="Message" required></textarea>
-                </div>
-                <button type="submit" class="cta-button inquiry-submit">Submit</button>
-            </form>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="inquiry" class="contact-section">
         <div class="container">
-            <div class="contact-background">
-                <div class="large-text">Get In Touch</div>
-                <div class="large-text">Get In Touch</div>
-                <div class="large-text">Get In Touch</div>
+            <div class="contact-header">
+                <h2 class="inquiry-title">Get in Touch</h2>
+                <p class="inquiry-subtitle">We're ready to discuss your project and answer your questions. Tell us a bit about yourself and send your query to us. We'll get back to you as soon as possible.</p>
             </div>
-            <div class="contact-buttons">
-                <button class="contact-btn">Contact Us</button>
-                <button class="contact-btn">Contact Us</button>
-                <button class="contact-btn">Contact Us</button>
-            </div>
+            
+            <form class="inquiry-form" action="https://formsubmit.co/abrixtech@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="New Inquiry from Abrix Tech Website">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                
+                <div class="form-row">
+                    <input type="text" name="name" placeholder="Name" required>
+                </div>
+                
+                <div class="form-row">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                
+                <div class="form-row">
+                    <input type="tel" name="phone" placeholder="Phone Number" required>
+                </div>
+                
+                <div class="services-section">
+                    <h4>Services You're Interested In:</h4>
+                    <div class="services-grid">
+                        <div class="service-checkbox">
+                            <input type="checkbox" id="service1" name="services[]" value="Branding & Visual Identity">
+                            <label for="service1">Branding & Visual Identity</label>
+                        </div>
+                        <div class="service-checkbox">
+                            <input type="checkbox" id="service2" name="services[]" value="UX/UI Research & Design">
+                            <label for="service2">UX/UI Research & Design</label>
+                        </div>
+                        <div class="service-checkbox">
+                            <input type="checkbox" id="service3" name="services[]" value="Web & Mobile App Development">
+                            <label for="service3">Web & Mobile App Development</label>
+                        </div>
+                        <div class="service-checkbox">
+                            <input type="checkbox" id="service4" name="services[]" value="Custom Software / CMS Development">
+                            <label for="service4">Custom Software / CMS Development</label>
+                        </div>
+                        <div class="service-checkbox">
+                            <input type="checkbox" id="service5" name="services[]" value="Digital Marketing">
+                            <label for="service5">Digital Marketing</label>
+                        </div>
+                        <div class="service-checkbox">
+                            <input type="checkbox" id="service6" name="services[]" value="AI Solutions & Automation">
+                            <label for="service6">AI Solutions & Automation</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <textarea name="message" placeholder="Message" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit" class="cta-button inquiry-submit">Send Message</button>
+            </form>
         </div>
     </section>
 
@@ -286,43 +432,137 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <img src="abrix logo white.png" alt="Abrix Logo" class="logo-image">
-                    </div>
+                <div class="footer-logo">
+                    <img src="abrix logo white.png" alt="Abrix Logo" class="logo-image">
+                    <p class="footer-slogan">Turning Ideas Into Digital Products</p>
                 </div>
+                
                 <div class="footer-section">
                     <h3>CONTACT</h3>
-                    <p>123 Business Street<br>New York, NY 10001</p>
-                    <p class="contact-info">hello@yourfolio.com</p>
-                    <p class="contact-info">+2 495 343 24 45</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>Business complex, DHA Phase 8, Lahore Pakistan</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <p>abrixtech@gmail.com</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <p>+92 302 9300006</p>
+                        </div>
+                    </div>
                 </div>
+                
                 <div class="footer-section">
-                    <h3>NAVIGATE</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#blog">Blog</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>FOLLOW US</h3>
+                    <h3>SOCIAL</h3>
                     <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.linkedin.com/company/abrix-tech/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2023 All Rights Reserved.</p>
+                <p>&copy; 2024 Abrix Tech. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Project Modals -->
+    <div id="signageModal" class="project-modal" aria-hidden="true">
+        <div class="project-modal__backdrop"></div>
+        <div class="project-modal__dialog">
+            <button class="project-modal__close" aria-label="Close modal">×</button>
+            <div class="project-modal__content">
+                <h3 class="project-modal__title">Digital Signage Platform</h3>
+                <p>We developed an advanced SaaS platform for a leading retail technology provider to revolutionize how businesses manage and display their digital content across multiple locations. Designed for <strong>seamless content scheduling and real-time display control</strong>, the platform enables brands to enhance customer engagement, maintain consistent messaging, and maximize the impact of their in-store advertising.</p>
+                <p><strong>Key Features:</strong></p>
+                <ul>
+                    <li><strong>Dual-Portals Architecture</strong> – Admin Portal for onboarding clients and Business Portal for content management</li>
+                    <li><strong>Dynamic Content Scheduling</strong> – Advanced playlist and campaign scheduling</li>
+                    <li><strong>Real-Time Monitoring & Control</strong> – Instantly update content across all displays</li>
+                    <li><strong>Multi-Format Support</strong> – Handles images, videos, animations, and interactive content</li>
+                </ul>
+                <p><strong>Impact:</strong> By combining <strong>flexible content management</strong> with <strong>real-time delivery</strong>, this platform empowers businesses to streamline operations, enhance brand presence, and run targeted campaigns that increase both engagement and sales.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="mfgOptModal" class="project-modal" aria-hidden="true">
+        <div class="project-modal__backdrop"></div>
+        <div class="project-modal__dialog">
+            <button class="project-modal__close" aria-label="Close modal">×</button>
+            <div class="project-modal__content">
+                <h3 class="project-modal__title">Manufacturing Optimization Platform</h3>
+                <p>We developed a cutting-edge SaaS platform for a leading industrial consultancy to revolutionize how complex manufacturing plants optimize their operations. Built with a Zero Loss Analysis methodology, the platform helps manufacturers unlock hidden efficiencies, boost output, reduce downtime, and improve margins—without major capital investments.</p>
+                <p><strong>Key Features:</strong></p>
+                <ul>
+                    <li><strong>Dual-Portals Architecture</strong> – Admin Portal for onboarding companies and Business Portal with Site Manager App and Visualizer App</li>
+                    <li><strong>Rich Visualization Tools</strong> – Interactive dashboards, Gantt charts, Pareto analyses, and golden cycle tracking</li>
+                    <li><strong>Data-Driven Decision Making</strong> – Uses historic process data to uncover untapped potential</li>
+                </ul>
+                <p><strong>Impact:</strong> By blending empirical data analysis with deep industry expertise, this platform empowers manufacturers to sustain improvements, gain competitive advantage, and achieve up to 5–50% operational performance gains.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="smartfleetModal" class="project-modal" aria-hidden="true">
+        <div class="project-modal__backdrop"></div>
+        <div class="project-modal__dialog">
+            <button class="project-modal__close" aria-label="Close modal">×</button>
+            <div class="project-modal__content">
+                <h3 class="project-modal__title">SmartFleet Vehicle Tracking & Optimization Suite</h3>
+                <p>We developed a complete web and mobile SaaS solution for logistics and delivery companies to monitor, control, and optimize fleet operations from anywhere. Combining real-time GPS tracking with AI-powered route optimization, the platform enables fleet managers to cut costs, reduce idle time, and increase on-time deliveries.</p>
+                <p><strong>Key Features:</strong></p>
+                <ul>
+                    <li><strong>Web & Mobile Apps</strong> – Access fleet data on any device, with native mobile apps for iOS and Android</li>
+                    <li><strong>Dual-Portals Architecture</strong> – Admin Portal for management and Business Portal for operations</li>
+                    <li><strong>AI Route Optimization</strong> – Dynamically calculates the most efficient delivery paths</li>
+                    <li><strong>Driver Mobile App</strong> – Real-time delivery instructions and proof-of-delivery uploads</li>
+                    <li><strong>Alert & Maintenance System</strong> – Automatic alerts for speeding, route deviations, and maintenance needs</li>
+                </ul>
+                <p><strong>Impact:</strong> By integrating real-time GPS intelligence with AI-driven planning, SmartFleet enables logistics firms to reduce fuel usage, improve delivery times, and boost fleet productivity—resulting in higher profits and customer satisfaction.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="hrmatrixModal" class="project-modal" aria-hidden="true">
+        <div class="project-modal__backdrop"></div>
+        <div class="project-modal__dialog">
+            <button class="project-modal__close" aria-label="Close modal">×</button>
+            <div class="project-modal__content">
+                <h3 class="project-modal__title">HRMatrix Workforce Management System</h3>
+                <p>We built a fully custom enterprise HR software solution with integrated web and mobile applications, designed to centralize all HR functions in a single platform. Tailored for the client's exact workflows, HRMatrix automates payroll, performance tracking, and attendance while providing employees with a self-service portal.</p>
+                <p><strong>Key Features:</strong></p>
+                <ul>
+                    <li><strong>Custom-Built Web & Mobile Apps</strong> – Fully responsive web platform and dedicated mobile apps for both Android and iOS</li>
+                    <li><strong>Admin & Employee Portals</strong> – Admin for management and Employee for self-service</li>
+                    <li><strong>Biometric & Mobile Attendance</strong> – Integrated biometric scanners and mobile geofencing</li>
+                    <li><strong>Automated Payroll</strong> – Salary calculation, tax deductions, and bank integrations</li>
+                    <li><strong>Performance & Goal Tracking</strong> – Customizable KPI dashboards for employees and managers</li>
+                </ul>
+                <p><strong>Impact:</strong> As a tailor-made HR solution, HRMatrix eliminated manual data entry, reduced payroll errors, and improved transparency across the client's organization. The result: faster HR processes, happier employees, and measurable cost savings.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Success Modal -->
+    <div id="successModal" class="success-modal" aria-hidden="true">
+        <div class="success-modal__backdrop"></div>
+        <div class="success-modal__dialog">
+            <div class="success-modal__content">
+                <div class="success-modal__icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3 class="success-modal__title">Message Sent Successfully!</h3>
+                <p class="success-modal__message">Thank you for your inquiry! Your message has been sent to abrixtech@gmail.com. We will get back to you soon.</p>
+                <button class="success-modal__close cta-button">Got it!</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js?v=1.1" defer></script>
 </body>
 </html> 
