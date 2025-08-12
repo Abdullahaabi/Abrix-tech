@@ -1,5 +1,209 @@
-// Smooth scrolling for navigation links
+// Hero Slider Functionality
 document.addEventListener('DOMContentLoaded', function() {
+    // Hero Slider
+    const heroSlides = document.querySelectorAll('.hero-slide');
+    let currentSlide = 0;
+    const slideInterval = 5000; // 5 seconds
+
+    function showSlide(index) {
+        // Remove active class from all slides
+        heroSlides.forEach(slide => {
+            slide.classList.remove('active');
+        });
+        
+        // Add active class to current slide
+        heroSlides[index].classList.add('active');
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % heroSlides.length;
+        showSlide(currentSlide);
+    }
+
+    // Initialize first slide
+    if (heroSlides.length > 0) {
+        showSlide(0);
+        // Auto-advance slides
+        setInterval(nextSlide, slideInterval);
+    }
+
+    // Floating arrow click to scroll
+    const floatingArrow = document.querySelector('.floating-arrow');
+    if (floatingArrow) {
+        floatingArrow.addEventListener('click', function() {
+            const aboutSection = document.querySelector('#about');
+            if (aboutSection) {
+                aboutSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
+
+    // Services Navigation
+    const servicesSlider = document.querySelector('.services-slider');
+    const servicesPages = document.querySelectorAll('.services-page');
+    const prevBtn = document.querySelector('.services-prev');
+    const nextBtn = document.querySelector('.services-next');
+    let currentPage = 0;
+
+    function showServicesPage(pageIndex) {
+        servicesPages.forEach((page, index) => {
+            if (index === pageIndex) {
+                page.classList.add('active');
+            } else {
+                page.classList.remove('active');
+            }
+        });
+
+        // Update button states and visibility
+        if (prevBtn) {
+            prevBtn.disabled = pageIndex === 0;
+            if (pageIndex === 0) {
+                prevBtn.classList.remove('active');
+            } else {
+                prevBtn.classList.add('active');
+            }
+        }
+        
+        if (nextBtn) {
+            nextBtn.disabled = pageIndex === servicesPages.length - 1;
+            if (pageIndex === servicesPages.length - 1) {
+                nextBtn.classList.remove('active');
+            } else {
+                nextBtn.classList.add('active');
+            }
+        }
+    }
+
+    // Initialize the first page
+    if (servicesPages.length > 0) {
+        showServicesPage(0);
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', function() {
+            if (currentPage > 0) {
+                currentPage--;
+                showServicesPage(currentPage);
+            }
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', function() {
+            if (currentPage < servicesPages.length - 1) {
+                currentPage++;
+                showServicesPage(currentPage);
+            }
+        });
+    }
+
+    // CTA Buttons with data-target="#inquiry" - Scroll to Form
+    const inquiryButtons = document.querySelectorAll('[data-target="#inquiry"]');
+    inquiryButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const inquirySection = document.querySelector('#inquiry');
+            if (inquirySection) {
+                inquirySection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Form Submission Handling
+    const inquiryForm = document.querySelector('.inquiry-form');
+    const successModal = document.getElementById('successModal');
+    const successModalClose = document.querySelector('.success-modal__close');
+    const successModalBackdrop = document.querySelector('.success-modal__backdrop');
+
+    if (inquiryForm) {
+        inquiryForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const formObject = {};
+            formData.forEach((value, key) => {
+                if (formObject[key]) {
+                    if (Array.isArray(formObject[key])) {
+                        formObject[key].push(value);
+                    } else {
+                        formObject[key] = [formObject[key], value];
+                    }
+                } else {
+                    formObject[key] = value;
+                }
+            });
+
+            // Show loading state
+            const submitButton = this.querySelector('.inquiry-submit');
+            const originalText = submitButton.innerHTML;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitButton.disabled = true;
+
+            // Submit form using FormSubmit
+            const formAction = this.action;
+            const formMethod = this.method;
+
+            // Create a timeout promise
+            const timeoutPromise = new Promise((_, reject) => {
+                setTimeout(() => reject(new Error('Request timeout')), 10000);
+            });
+
+            // Submit the form
+            const submitPromise = fetch(formAction, {
+                method: formMethod,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            // Race between submit and timeout
+            Promise.race([submitPromise, timeoutPromise])
+                .then(response => {
+                    if (response.ok) {
+                        // Show success modal
+                        successModal.style.display = 'flex';
+                        successModal.setAttribute('aria-hidden', 'false');
+                        
+                        // Reset form
+                        inquiryForm.reset();
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                })
+                .catch(error => {
+                    console.error('Form submission error:', error);
+                    alert('There was an error sending your message. Please try again or contact us directly at abrixtech@gmail.com');
+                })
+                .finally(() => {
+                    // Reset button state
+                    submitButton.innerHTML = originalText;
+                    submitButton.disabled = false;
+                });
+        });
+    }
+
+    // Close success modal
+    if (successModalClose) {
+        successModalClose.addEventListener('click', function() {
+            successModal.style.display = 'none';
+            successModal.setAttribute('aria-hidden', 'true');
+        });
+    }
+
+    if (successModalBackdrop) {
+        successModalBackdrop.addEventListener('click', function() {
+            successModal.style.display = 'none';
+            successModal.setAttribute('aria-hidden', 'true');
+        });
+    }
+
     // Smooth scrolling for navigation links
     const navLinks = document.querySelectorAll('.nav-links a, .footer-section a');
     
@@ -52,7 +256,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
 
     // Observe elements for animation
-    const animateElements = document.querySelectorAll('.service-card, .service-item, .team-member, .portfolio-item');
+    const animateElements = document.querySelectorAll('.service-card, .service-item');
     
     animateElements.forEach(el => {
         el.style.opacity = '0';
@@ -61,66 +265,77 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
 
-    // Testimonial navigation
-    const testimonialNav = document.querySelectorAll('.nav-btn');
-    let currentTestimonial = 0;
-    
-    const testimonials = [
-        {
-            quote: "Working with folio has been an absolute pleasure. Their attention to detail and commitment to delivering exceptional results exceeded our expectations. The website they built for us has significantly improved our online presence and user engagement.",
-            author: "John Smith",
-            title: "CEO, TechCorp"
-        },
-        {
-            quote: "The team at folio is incredibly talented and professional. They delivered our project on time and within budget, exceeding all our expectations. Highly recommended!",
-            author: "Sarah Johnson",
-            title: "Marketing Director, InnovateCo"
-        },
-        {
-            quote: "Outstanding work from start to finish. The folio team understood our vision perfectly and brought it to life with stunning design and flawless functionality.",
-            author: "Michael Chen",
-            title: "Founder, StartupXYZ"
-        }
-    ];
 
-    function updateTestimonial() {
-        const testimonialContent = document.querySelector('.testimonial-content');
-        const current = testimonials[currentTestimonial];
-        
-        testimonialContent.innerHTML = `
-            <blockquote>${current.quote}</blockquote>
-            <div class="testimonial-author">
-                <h4>${current.author}</h4>
-                <p>${current.title}</p>
-            </div>
-        `;
-    }
 
-    testimonialNav.forEach((btn, index) => {
-        btn.addEventListener('click', function() {
-            if (index === 0) { // Previous button
-                currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
-            } else { // Next button
-                currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-            }
-            updateTestimonial();
-        });
-    });
-
-    // CTA button functionality
-    const ctaButtons = document.querySelectorAll('.cta-button, .contact-btn, .view-project, .brand-cta__button');
+    // CTA button functionality (excluding project detail buttons)
+    const ctaButtons = document.querySelectorAll('.cta-button:not(.view-project), .contact-btn');
     
     ctaButtons.forEach(button => {
         button.addEventListener('click', function() {
             // Scroll to contact section
-            const contactSection = document.querySelector('#contact');
-            const headerHeight = document.querySelector('.header').offsetHeight;
-            const targetPosition = contactSection.offsetTop - headerHeight;
+            const contactSection = document.querySelector('#inquiry');
+            if (contactSection) {
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const targetPosition = contactSection.offsetTop - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Project modal functionality
+    const projectButtons = document.querySelectorAll('.view-project');
+    
+    projectButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const projectType = this.getAttribute('data-project');
+            let modalId;
             
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
+            // Handle different naming conventions
+            if (projectType === 'mfg-opt') {
+                modalId = 'mfgOptModal';
+            } else {
+                modalId = projectType + 'Modal';
+            }
+            
+            const modal = document.getElementById(modalId);
+            
+            if (modal) {
+                modal.setAttribute('aria-hidden', 'false');
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+
+    // Close modal functionality
+    const closeButtons = document.querySelectorAll('.project-modal__close');
+    
+    closeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const modal = this.closest('.project-modal');
+            if (modal) {
+                modal.setAttribute('aria-hidden', 'true');
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    });
+
+    // Close modal when clicking backdrop
+    const modalBackdrops = document.querySelectorAll('.project-modal__backdrop');
+    
+    modalBackdrops.forEach(backdrop => {
+        backdrop.addEventListener('click', function() {
+            const modal = this.closest('.project-modal');
+            if (modal) {
+                modal.setAttribute('aria-hidden', 'true');
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
         });
     });
 
@@ -137,38 +352,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Portfolio image hover effect
-    const portfolioImage = document.querySelector('.portfolio-image img');
-    
-    if (portfolioImage) {
-        portfolioImage.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.05)';
-        });
-        
-        portfolioImage.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
-        });
-    }
 
-    // Team member hover effects
-    const teamMembers = document.querySelectorAll('.team-member');
-    
-    teamMembers.forEach(member => {
-        member.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.1)';
-            this.style.borderColor = '#1dac4b';
-        });
-        
-        member.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
-            this.style.borderColor = '#1dac4b';
-        });
-    });
+
+
 
     // Parallax effect for background elements
     window.addEventListener('scroll', function() {
         const scrolled = window.pageYOffset;
-        const parallaxElements = document.querySelectorAll('.services-background, .portfolio-background, .contact-background');
+        const parallaxElements = document.querySelectorAll('.services-background, .portfolio-background');
         
         parallaxElements.forEach(element => {
             const speed = 0.5;
