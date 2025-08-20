@@ -10,34 +10,253 @@
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://abrixtech.com/">
+    <meta property="og:url" content="https://www.abrixtech.com/">
     <meta property="og:title" content="Abrix Tech - Smart Technology Solutions">
     <meta property="og:description" content="Empowering Growth Through Smart Technology Solutions. We build modern, scalable software and digital products.">
-    <meta property="og:image" content="https://abrixtech.com/abrix-logo.png">
+    <meta property="og:image" content="https://www.abrixtech.com/abrix-logo.png">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://abrixtech.com/">
+    <meta property="twitter:url" content="https://www.abrixtech.com/">
     <meta property="twitter:title" content="Abrix Tech - Smart Technology Solutions">
     <meta property="twitter:description" content="Empowering Growth Through Smart Technology Solutions. We build modern, scalable software and digital products.">
-    <meta property="twitter:image" content="https://abrixtech.com/abrix-logo.png">
+    <meta property="twitter:image" content="https://www.abrixtech.com/abrix-logo.png">
     
-    <link rel="icon" type="image/png" href="abrix symbol.png">
+    <link rel="icon" type="image/png" href="Abrix Symbol.png">
+    <link rel="shortcut icon" type="image/png" href="Abrix Symbol.png">
+    <link rel="apple-touch-icon" href="Abrix Symbol.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://formsubmit.co">
     <title>Abrix Tech - Smart Technology Solutions | Web & Mobile App Development</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
+    
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"></noscript>
+    
+    <!-- Preload critical images -->
+    <link rel="preload" href="R/R1.jpg" as="image" type="image/jpeg">
+    <link rel="preload" href="abrix logo white.png" as="image" type="image/png">
+    <link rel="preload" href="Abrix Symbol.png" as="image" type="image/png">
+    
+    <!-- Critical CSS for immediate display -->
+    <style>
+        /* Critical CSS to prevent white flash and improve loading */
+        body { 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0;
+        }
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 16px;
+            bottom: 16px;
+            left: 32px;
+            right: 32px;
+            background-color: rgba(9, 8, 8, 0.48);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            z-index: 0;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo-image {
+            height: 42px;
+            width: auto;
+            object-fit: contain;
+            filter: brightness(1.1) contrast(1.1);
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+            .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    .cta-button {
+        background: linear-gradient(135deg, #1dac4b 0%, #2dd36f 100%);
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+        }
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .hero-slide.active {
+            opacity: 1;
+        }
+        .hero-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+                /* Mobile responsive critical styles */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .nav {
+                max-width: 100% !important;
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 15px 15px !important;
+                box-sizing: border-box !important;
+            }
+            .header::before {
+                left: 10px !important;
+                right: 10px !important;
+                top: 10px !important;
+                bottom: 10px !important;
+            }
+            .nav-logo {
+                max-width: 40% !important;
+                overflow: hidden !important;
+            }
+            .logo-image {
+                height: 30px !important;
+                max-width: 100% !important;
+            }
+            .nav-right {
+                max-width: 50% !important;
+                gap: 6px !important;
+            }
+            .cta-button {
+                font-size: 11px !important;
+                padding: 6px 12px !important;
+            }
+            .hero-text h1 { font-size: 2.5rem; }
+            .hero-text p { font-size: 1rem; }
+        }
+    </style>
 </head>
-<body class="white-theme">
+<body class="white-theme" style="opacity: 1;">
+    <!-- Loading Indicator -->
+    <div id="loadingIndicator" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #ffffff; z-index: 9999; display: flex; align-items: center; justify-content: center; transition: opacity 0.3s ease;">
+        <div style="text-align: center;">
+            <img src="Abrix Symbol.png" alt="Loading..." style="width: 60px; height: 60px; animation: pulse 1.5s infinite;">
+            <p style="margin-top: 20px; color: #333; font-family: 'Inter', sans-serif;">Loading...</p>
+        </div>
+    </div>
+    
+    <style>
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+    </style>
 
     <!-- Header/Navigation -->
     <header class="header">
         <nav class="nav">
             <div class="nav-logo">
                 <a href="#home" class="logo-link">
-                    <img src="abrix logo white.png" alt="Abrix Logo" class="logo-image" loading="eager">
+                    <img src="abrix logo white.png" alt="Abrix Logo" class="logo-image" loading="eager" fetchpriority="high" decoding="async">
                 </a>
             </div>
             <ul class="nav-links">
@@ -46,8 +265,33 @@
                 <li><a href="#services">Services</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
             </ul>
-            <button class="cta-button" data-target="#inquiry">Let's Talk</button>
+            <div class="nav-right">
+                <button class="cta-button" data-target="#inquiry">Let's Talk</button>
+                
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" aria-label="Toggle mobile menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
         </nav>
+        
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay">
+            <div class="mobile-menu-content">
+                <button class="mobile-menu-close" aria-label="Close mobile menu">
+                    <i class="fas fa-times"></i>
+                </button>
+                <ul class="mobile-nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                </ul>
+                <button class="mobile-cta-button" data-target="#inquiry">Let's Talk</button>
+            </div>
+        </div>
     </header>
 
     <!-- Hero Section -->
@@ -55,13 +299,13 @@
         <div class="hero-background">
             <div class="hero-slider" aria-label="Hero image scroller" data-autoplay-interval="5000">
                 <div class="hero-slide active">
-                    <img src="R/R1.jpg" alt="Hero background image R1" loading="eager">
+                    <img src="R/R1.jpg" alt="Hero background image R1" loading="eager" fetchpriority="high" decoding="async">
                 </div>
                 <div class="hero-slide">
-                    <img src="R/R3.jpg" alt="Hero background image R3" loading="lazy">
+                    <img src="R/R3.jpg" alt="Hero background image R3" loading="lazy" fetchpriority="low" decoding="async">
                 </div>
                 <div class="hero-slide">
-                    <img src="R/R7.jpg" alt="Hero background image R7" loading="lazy">
+                    <img src="R/R7.jpg" alt="Hero background image R7" loading="lazy" fetchpriority="low" decoding="async">
                 </div>
             </div>
             <div class="hero-overlay"></div>
@@ -415,7 +659,10 @@
                     <input type="hidden" name="_subject" value="New Inquiry from Abrix Tech Website">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_next" value="">
+                    <input type="hidden" name="_next" value="https://www.abrixtech.com/thank-you.html">
+                    <input type="hidden" name="_replyto" value="">
+                    <input type="hidden" name="_autoresponse" value="Thank you for contacting Abrix Tech! We have received your message and will get back to you within 24 hours.">
+                    <input type="hidden" name="_cc" value="abrixtech@gmail.com">
                     
                     <div class="form-row">
                         <input type="text" name="name" placeholder="Full Name" required>
@@ -467,6 +714,16 @@
                         <i class="fas fa-paper-plane"></i>
                         Send Message
                     </button>
+                    
+                    <!-- Alternative contact methods for mobile -->
+                    <div class="alternative-contact" style="margin-top: 20px; text-align: center; padding: 15px; background: #f8f9fa; border-radius: 10px;">
+                        <p style="margin: 0 0 10px 0; color: #666; font-size: 14px;">Need immediate assistance?</p>
+                        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                            <a href="https://wa.me/923029300006" target="_blank" style="text-decoration: none; padding: 8px 15px; background: #25d366; color: white; border-radius: 5px; font-size: 14px;">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
@@ -607,12 +864,25 @@
                     <i class="fas fa-check-circle"></i>
                 </div>
                 <h3 class="success-modal__title">Message Sent Successfully!</h3>
-                <p class="success-modal__message">Thank you for your inquiry! Your message has been sent to abrixtech@gmail.com. We will get back to you soon.</p>
+                <p class="success-modal__message">Thank you for your inquiry! Your message has been sent successfully to abrixtech@gmail.com. We will get back to you within 24 hours.</p>
                 <button class="success-modal__close cta-button">Got it!</button>
             </div>
         </div>
     </div>
 
-    <script src="script.js?v=1.1" defer></script>
+    <script src="script.js?v=1.6" defer></script>
+    
+    <!-- Performance optimization: Load non-critical resources after page load -->
+    <script>
+        // Load non-critical images after page load
+        window.addEventListener('load', function() {
+            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+            lazyImages.forEach(img => {
+                if (img.dataset.src) {
+                    img.src = img.dataset.src;
+                }
+            });
+        });
+    </script>
 </body>
 </html> 

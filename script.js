@@ -100,6 +100,48 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Mobile Menu Functionality
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+    const mobileMenuClose = document.querySelector('.mobile-menu-close');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', function() {
+            this.classList.add('active');
+            mobileMenuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+
+    if (mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', function() {
+            mobileMenuBtn.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    }
+
+    // Close mobile menu when clicking on a link
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            mobileMenuBtn.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    });
+
+    // Close mobile menu when clicking outside
+    if (mobileMenuOverlay) {
+        mobileMenuOverlay.addEventListener('click', function(e) {
+            if (e.target === this) {
+                mobileMenuBtn.classList.remove('active');
+                this.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+
     // CTA Buttons with data-target="#inquiry" - Scroll to Form
     const inquiryButtons = document.querySelectorAll('[data-target="#inquiry"]');
     inquiryButtons.forEach(button => {
@@ -122,71 +164,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (inquiryForm) {
         inquiryForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+            // Don't prevent default - let FormSubmit.co handle it
+            // Just show loading state and set replyto field
             
-            // Get form data
-            const formData = new FormData(this);
-            const formObject = {};
-            formData.forEach((value, key) => {
-                if (formObject[key]) {
-                    if (Array.isArray(formObject[key])) {
-                        formObject[key].push(value);
-                    } else {
-                        formObject[key] = [formObject[key], value];
-                    }
-                } else {
-                    formObject[key] = value;
-                }
-            });
-
             // Show loading state
             const submitButton = this.querySelector('.inquiry-submit');
             const originalText = submitButton.innerHTML;
             submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             submitButton.disabled = true;
-
-            // Submit form using FormSubmit
-            const formAction = this.action;
-            const formMethod = this.method;
-
-            // Create a timeout promise
-            const timeoutPromise = new Promise((_, reject) => {
-                setTimeout(() => reject(new Error('Request timeout')), 10000);
-            });
-
-            // Submit the form
-            const submitPromise = fetch(formAction, {
-                method: formMethod,
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            });
-
-            // Race between submit and timeout
-            Promise.race([submitPromise, timeoutPromise])
-                .then(response => {
-                    if (response.ok) {
-                        // Show success modal
-                        successModal.style.display = 'flex';
-                        successModal.setAttribute('aria-hidden', 'false');
-                        
-                        // Reset form
-                        inquiryForm.reset();
-                    } else {
-                        throw new Error('Form submission failed');
-                    }
-                })
-                .catch(error => {
-                    console.error('Form submission error:', error);
-                    alert('There was an error sending your message. Please try again or contact us directly at abrixtech@gmail.com');
-                })
-                .finally(() => {
-                    // Reset button state
-                    submitButton.innerHTML = originalText;
-                    submitButton.disabled = false;
-                });
+            
+            // Set the _replyto field to the email from the form
+            const emailInput = this.querySelector('input[name="email"]');
+            const replyToField = this.querySelector('input[name="_replyto"]');
+            if (emailInput && replyToField) {
+                replyToField.value = emailInput.value;
+            }
+            
+            // Let the form submit naturally to FormSubmit.co
+            // The form will redirect to thank-you.html on success
         });
+        
+
     }
 
     // Close success modal
@@ -404,14 +402,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-    // Add loading animation
-    window.addEventListener('load', function() {
-        document.body.style.opacity = '1';
-    });
-
-    // Initialize page
-    document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.5s ease';
+    // Hide loading indicator when page is ready
+    const loadingIndicator = document.getElementById('loadingIndicator');
+    if (loadingIndicator) {
+        // Hide loading indicator faster for better perceived performance
+        setTimeout(() => {
+            loadingIndicator.style.opacity = '0';
+            setTimeout(() => {
+                loadingIndicator.style.display = 'none';
+            }, 200);
+        }, 300);
+    }
+    
+    // Performance optimization: Load non-critical resources after page is ready
+    function loadNonCriticalResources() {
+        // Preload other hero images
+        const heroImages = ['R/R3.jpg', 'R/R7.jpg'];
+        heroImages.forEach(src => {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = 'image';
+            link.href = src;
+            document.head.appendChild(link);
+        });
+    }
+    
+    // Load non-critical resources after page is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadNonCriticalResources);
+    } else {
+        loadNonCriticalResources();
+    }
+    
+    // Page is ready
+    console.log('Abrix Tech website loaded successfully');
 });
 
  
